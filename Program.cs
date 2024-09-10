@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<VictorBankAppContext>(options => options.UseSqlServer());
+var Connectionstring = builder.Configuration.GetConnectionString("VictorBankAzure");
+builder.Services.AddDbContext<VictorBankAppContext>(options => options.UseSqlServer(Connectionstring));
 // Add services to the container.
 builder.Services.AddRazorPages();
 

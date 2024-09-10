@@ -7,8 +7,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\NewFolder1\" />
     <Folder Include="wwwroot\NewFolder\NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="wwwroot\plugins\bootstrap\bootstrap.min.css" />
+    <None Include="wwwroot\plugins\bootstrap\bootstrap.min.js" />
+    <None Include="wwwroot\plugins\card-slider\css\style.css" />
+    <None Include="wwwroot\plugins\card-slider\js\card-slider-min.js" />
+    <None Include="wwwroot\plugins\counto\apear.js" />
+    <None Include="wwwroot\plugins\counto\counTo.js" />
+    <None Include="wwwroot\plugins\google-map\gmap.js" />
+    <None Include="wwwroot\plugins\jQuery\jquery.min.js" />
+    <None Include="wwwroot\plugins\shuffle\shuffle.min.js" />
+    <None Include="wwwroot\plugins\slick\ajax-loader.gif" />
+    <None Include="wwwroot\plugins\slick\fonts\slick.eot" />
+    <None Include="wwwroot\plugins\slick\fonts\slick.svg" />
+    <None Include="wwwroot\plugins\slick\fonts\slick.ttf" />
+    <None Include="wwwroot\plugins\slick\fonts\slick.woff" />
+    <None Include="wwwroot\plugins\slick\slick.css" />
+    <None Include="wwwroot\plugins\slick\slick.min.js" />
+    <None Include="wwwroot\plugins\themify-icons\fonts\themify.eot" />
+    <None Include="wwwroot\plugins\themify-icons\fonts\themify.svg" />
+    <None Include="wwwroot\plugins\themify-icons\fonts\themify.ttf" />
+    <None Include="wwwroot\plugins\themify-icons\fonts\themify.woff" />
+    <None Include="wwwroot\plugins\themify-icons\themify-icons.css" />
+    <None Include="wwwroot\plugins\venobox\venobox.css" />
+    <None Include="wwwroot\plugins\venobox\venobox.min.js" />
   </ItemGroup>
 
   <ItemGroup>

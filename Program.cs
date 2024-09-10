@@ -1,5 +1,9 @@
-var builder = WebApplication.CreateBuilder(args);
+using BankCore.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<VictorBankAppContext>(options => options.UseSqlServer());
 // Add services to the container.
 builder.Services.AddRazorPages();
 

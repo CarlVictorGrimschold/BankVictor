@@ -1,20 +1,23 @@
 .navigation {
-  padding: 20px 100px;
-  transition: .3s ease;
+    padding: 20px 100px;
+    transition: .3s ease;
+    background: $secondary-color;
 
-  &.nav-bg {
-    background-color: $secondary-color;
-    padding: 15px 100px;
+
+
+    &.nav-bg {
+        background-color: $secondary-color;
+        padding: 15px 100px;
+
+        @include desktop {
+            padding: 15px 20px;
+        }
+    }
 
     @include desktop {
-      padding: 15px 20px;
+        padding: 20px;
+        background: $secondary-color;
     }
-  }
-
-  @include desktop {
-    padding: 20px;
-    background: $secondary-color;
-  }
 }
 
 .navbar {
@@ -23,6 +26,7 @@
       font-family: $primary-font;
       padding: 15px;
       font-size: 18px;
+      
     }
 
     &.active {

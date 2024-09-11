@@ -526,6 +526,7 @@ textarea.form-control {
 .navigation {
   padding: 20px 100px;
   transition: 0.3s ease;
+  background: #07085d;
 }
 .navigation.nav-bg {
   background-color: #07085d;
@@ -923,4 +924,8 @@ footer .overlay-image {
 }
 .card-footer {
   border: 0;
+}
+
+.countrybox {
+  margin-top: 25px;
 }

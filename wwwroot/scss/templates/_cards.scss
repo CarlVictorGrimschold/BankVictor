@@ -1,6 +1,7 @@
 .card{
   border: 0;
   border-radius: 0;
+  
   &-img-top{
     border-radius: 0;
   }
@@ -14,4 +15,7 @@
   &-footer{
     border: 0;
   }
+}
+.countrybox {
+    margin-top: 25px;
 }

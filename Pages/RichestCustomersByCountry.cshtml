@@ -1,0 +1,15 @@
+﻿@page
+@model BankVictor.Pages.RichestCustomersByCountryModel
+@{
+}
+
+
+
+
+<ul>
+    @foreach(var customer in @Model.Customers){
+    <li>
+        @customer.Givenname
+    </li>
+    }
+</ul>

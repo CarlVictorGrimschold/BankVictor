@@ -8,7 +8,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankVictor", "BankVictor.cs
 		{0709850B-D7A1-4E3F-A106-1C6E510993BD} = {0709850B-D7A1-4E3F-A106-1C6E510993BD}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankCore", "..\BankCore\BankCore.csproj", "{0709850B-D7A1-4E3F-A106-1C6E510993BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankCore", "..\BankCore\BankCore.csproj", "{0709850B-D7A1-4E3F-A106-1C6E510993BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

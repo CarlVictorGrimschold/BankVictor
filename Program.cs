@@ -4,11 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
+using BankCore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var Connectionstring = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationIdentityDbContext>(options =>
     options.UseSqlServer(Connectionstring));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationIdentityDbContext>();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddIdentityCore<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -19,7 +22,7 @@ builder.Services.AddDbContext<VictorBankAppContext>(options => options.UseSqlSer
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<DataInitializer>();
-
+builder.Services.AddScoped<CountryService>();
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())

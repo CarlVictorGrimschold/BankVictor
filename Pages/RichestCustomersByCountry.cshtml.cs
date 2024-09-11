@@ -1,24 +1,26 @@
+using BankCore.Data.Models;
 using BankCore.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
-using BankCore.Data.Models;
 
 namespace BankVictor.Pages
 {
-    public class IndexModel : PageModel
+    public class RichestCustomersByCountryModel : PageModel
     {
         private readonly CountryService _countryService;
 
-        public IndexModel(CountryService countryService)
+        public RichestCustomersByCountryModel(CountryService countryService)
         {
             _countryService = countryService;
         }
+
+
         public List<Customer> Customers { get; set; }
-        public void OnGet()
+
+
+        public void OnGet(string countryCode = "SE")
         {
-            Customers = _countryService.GetCustomersByCountry("FI");
-          //  _countryService.GetAllCustomers();
+            Customers = _countryService.GetCustomersByCountry(countryCode);
         }
     }
 }

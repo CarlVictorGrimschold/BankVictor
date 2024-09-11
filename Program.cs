@@ -1,14 +1,32 @@
 using BankCore.Data;
+using BankCore.IdentityData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 
 var builder = WebApplication.CreateBuilder(args);
-var Connectionstring = builder.Configuration.GetConnectionString("VictorBankAzure");
+var Connectionstring = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationIdentityDbContext>(options =>
+    options.UseSqlServer(Connectionstring));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddIdentityCore<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationIdentityDbContext>();
+
 builder.Services.AddDbContext<VictorBankAppContext>(options => options.UseSqlServer(Connectionstring));
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddTransient<DataInitializer>();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    scope.ServiceProvider.GetService<DataInitializer>().SeedData();
+}
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

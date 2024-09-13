@@ -23,6 +23,7 @@ builder.Services.AddDbContext<VictorBankAppContext>(options => options.UseSqlSer
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<DataInitializer>();
 builder.Services.AddScoped<CountryService>();
+builder.Services.AddScoped<AccountService>();
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())

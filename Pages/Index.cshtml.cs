@@ -17,7 +17,7 @@ namespace BankVictor.Pages
         public List<Customer> Customers { get; set; }
         public void OnGet()
         {
-            Customers = _countryService.GetCustomersByCountry("FI");
+            Customers = _countryService.GetTopWealthyCustomersByCountry("FI");
           //  _countryService.GetAllCustomers();
         }
     }

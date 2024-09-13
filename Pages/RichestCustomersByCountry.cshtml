@@ -10,6 +10,10 @@
     @foreach(var customer in @Model.Customers){
     <li>
         @customer.Givenname
+        @customer.Surname
+        @customer.CountryCode
+        @customer.BalanceCustomer
+        @customer.Country
     </li>
     }
 </ul>

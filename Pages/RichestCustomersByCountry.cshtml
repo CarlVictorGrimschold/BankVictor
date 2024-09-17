@@ -46,40 +46,58 @@
     </li>
     }
 </ul> *@
-@page
+@* @page
 @model BankVictor.Pages.RichestCustomersByCountryModel
 @{
 }
 
-<style>
-    html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        font-family: Arial, sans-serif, bold; 
-        
-    }
 
-    ol {
-        list-style-type: decimal; /* Använder decimala tal för listpunkterna */
-        padding: 0;
-        width: 100%; /* Gör listan full bredd */
-        text-align: left; /* Texten är vänsterjusterad */
-        counter-reset: listcounter; /* Återställer listräknaren */
-        border-top: 1px solid #ccc; /* Lägger till ett streck ovanför första elementet */
-    }
 
-</style>
 
-<ol>
     @foreach (var customer in @Model.Customers)
     {
-        <li>
-            @customer.Givenname @customer.Surname
-            - @customer.CountryCode @customer.BalanceCustomer @customer.Country
-        </li>
+        <table>
+        <tr>
+        <td>@customer.Givenname</td>
+        <td>@customer.Surname</td>
+        <td>@customer.CountryCode</td>
+        <td>@customer.BalanceCustomer</td>
+        <td>@customer.Country</td>
+        </tr>
+        </table>
     }
-</ol>
+ *@
+
+ @page
+@model BankVictor.Pages.RichestCustomersByCountryModel
+@{
+    var rank = 1;
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Förnamn</th>
+            <th>Efternamn</th>
+            <th>Landkod</th>
+            <th>Balans</th>
+            <th>Land</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in @Model.Customers)
+        {
+            <tr>
+                <td>@rank</td>
+                <td>@customer.Givenname</td>
+                <td>@customer.Surname</td>
+                <td>@customer.CountryCode</td>
+                <td>@customer.BalanceCustomer</td>
+                <td>@customer.Country</td>
+            </tr>
+            rank++;
+        }
+    </tbody>
+</table>
+

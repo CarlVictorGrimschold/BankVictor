@@ -1,4 +1,5 @@
-﻿/*!------------------------------------------------------------------
+﻿@charset "UTF-8";
+/*!------------------------------------------------------------------
 [MAIN STYLESHEET]
 
 PROJECT:	Project Name
@@ -926,6 +927,54 @@ footer .overlay-image {
   border: 0;
 }
 
-.countrybox {
-  margin-top: 25px;
+/*.countrybox {
+    margin-top: 25px;
+}*/
+.row-custom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*table{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif, bold;
+}
+
+ol {
+    list-style-type: decimal;*/ /* Använder decimala tal för listpunkterna */
+/*padding: 0;
+width: 100%;*/ /* Gör listan full bredd */
+/*text-align: left;*/ /* Texten är vänsterjusterad */
+/*counter-reset: listcounter;*/ /* Återställer listräknaren */
+/*border-top: 1px solid #ccc;*/ /* Lägger till ett streck ovanför första elementet */
+/*}*/
+table {
+  margin-top: 110px;
+  width: 100%;
+  border-collapse: collapse; /* Tar bort mellanrum mellan celler */
+  font-family: Arial, sans-serif;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Randig bakgrund på jämna rader */
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
 }

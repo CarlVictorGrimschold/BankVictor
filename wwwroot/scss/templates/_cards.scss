@@ -1,21 +1,29 @@
-.card{
-  border: 0;
-  border-radius: 0;
-  
-  &-img-top{
-    border-radius: 0;
-  }
-  &-header{
-    border: 0;
-  }
-  &-body{
+.card {
     border: 0;
     border-radius: 0;
-  }
-  &-footer{
-    border: 0;
-  }
+
+    &-img-top {
+        border-radius: 0;
+    }
+
+    &-header {
+        border: 0;
+    }
+
+    &-body {
+        border: 0;
+        border-radius: 0;
+    }
+
+    &-footer {
+        border: 0;
+    }
 }
-.countrybox {
+/*.countrybox {
     margin-top: 25px;
+}*/
+.row-custom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

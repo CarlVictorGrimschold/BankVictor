@@ -1,10 +1,39 @@
-﻿@page
+﻿@* @page
 @model BankVictor.Pages.RichestCustomersByCountryModel
 @{
 }
 
 
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center; /* Centrerar innehållet vertikalt */
+        justify-content: center; /* Centrerar innehållet horisontellt */
+        font-family: Arial, sans-serif; /* Typsnitt */
+    }
 
+    ol {
+        list-style-type: decimal; /* Använder decimala tal för listpunkterna */
+        padding: 0;
+        width: 100%; /* Gör listan full bredd */
+        text-align: left; /* Texten är vänsterjusterad */
+        counter-reset: listcounter; /* Återställer listräknaren */
+        border-top: 1px solid #ccc; /* Lägger till ett streck ovanför första elementet */
+    }
+
+    ul {
+        list-style-type: none; /* Tar bort punkterna från listan */
+        padding: 0;
+        text-align: center; /* Centrerar texten */
+    }
+
+    li {
+        margin: 5px 0; /* Lägger till lite marginal mellan listobjekten */
+    }
+</style>
 
 <ul>
     @foreach(var customer in @Model.Customers){
@@ -16,4 +45,41 @@
         @customer.Country
     </li>
     }
-</ul>
+</ul> *@
+@page
+@model BankVictor.Pages.RichestCustomersByCountryModel
+@{
+}
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        font-family: Arial, sans-serif, bold; 
+        
+    }
+
+    ol {
+        list-style-type: decimal; /* Använder decimala tal för listpunkterna */
+        padding: 0;
+        width: 100%; /* Gör listan full bredd */
+        text-align: left; /* Texten är vänsterjusterad */
+        counter-reset: listcounter; /* Återställer listräknaren */
+        border-top: 1px solid #ccc; /* Lägger till ett streck ovanför första elementet */
+    }
+
+</style>
+
+<ol>
+    @foreach (var customer in @Model.Customers)
+    {
+        <li>
+            @customer.Givenname @customer.Surname
+            - @customer.CountryCode @customer.BalanceCustomer @customer.Country
+        </li>
+    }
+</ol>

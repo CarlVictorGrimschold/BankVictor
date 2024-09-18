@@ -1,0 +1,51 @@
+﻿@page
+@model BankVictor.Pages.Customers.CustomerSearchModel
+
+<h2>Customer List</h2>
+
+@if (Model.AllCustomers != null && Model.AllCustomers.Count > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Given Name</th>
+                <th>Surname</th>
+                <th>Gender</th>
+                <th>Street Address</th>
+                <th>City</th>
+                <th>Zip Code</th>
+                <th>Country</th>
+                <th>Country Code</th>
+                <th>National ID</th>
+                <th>Telephone Country Code</th>
+                <th>Telephone Number</th>
+                <th>Email Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model.AllCustomers)
+            {
+                <tr>
+                    <td>@customer.CustomerId</td>
+                    <td>@customer.Givenname</td>
+                    <td>@customer.Surname</td>
+                    <td>@customer.Gender</td>
+                    <td>@customer.Streetaddress</td>
+                    <td>@customer.City</td>
+                    <td>@customer.Zipcode</td>
+                    <td>@customer.Country</td>
+                    <td>@customer.CountryCode</td>
+                    <td>@customer.NationalId</td>
+                    <td>@customer.Telephonecountrycode</td>
+                    <td>@customer.Telephonenumber</td>
+                    <td>@customer.Emailaddress</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>inga kunder hittas.</p>
+}

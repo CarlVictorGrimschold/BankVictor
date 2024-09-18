@@ -27,7 +27,8 @@ namespace BankVictor.Pages
 
         public void OnGet(string countryCode = "SE")
         {
-            Customers = _countryService.GetTopWealthyCustomersByCountry(countryCode).Select(c => new CustomerViewModel
+            Customers = _countryService.GetTopWealthyCustomersByCountry(countryCode)
+                .Select(c => new CustomerViewModel
             {
                 CustomerId = c.CustomerId,
                 Country = c.Country,

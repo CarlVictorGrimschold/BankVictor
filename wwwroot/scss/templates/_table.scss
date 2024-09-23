@@ -17,6 +17,13 @@ ol {
     /*counter-reset: listcounter;*/ /* Återställer listräknaren */
     /*border-top: 1px solid #ccc;*/ /* Lägger till ett streck ovanför första elementet */
 /*}*/
+.data-table {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 table {
     margin-top: 110px;
     width: 100%;

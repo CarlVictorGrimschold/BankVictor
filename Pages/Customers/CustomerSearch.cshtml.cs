@@ -15,9 +15,11 @@ namespace BankVictor.Pages.Customers
         }
 
         public List<AllCustomerWiewModels> AllCustomers { get; set; }
-        public void OnGet()
+        public void OnGet(string sortColumn, string sortOrder)
+            
         {
-            AllCustomers = _customerService.GetAllCustomers()
+            
+            AllCustomers = _customerService.GetAllCustomers(sortColumn ,sortOrder)
              .Select(c => new AllCustomerWiewModels
 
              {

@@ -111,3 +111,27 @@
     text-decoration: underline;
   }
 }
+/* Sorting icons for table headers */
+th {
+    text-align: left; /* Du kan ändra till "center" om du vill ha allt centrerat */
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ser till att text och pilar fördelas jämt */
+}
+
+.sort-icon {
+    margin-left: 5px; /* Ger lite utrymme mellan texten och pilarna */
+}
+
+th a {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+th i {
+    padding-left: 5px;
+}

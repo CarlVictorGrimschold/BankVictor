@@ -5,28 +5,238 @@
 
 @if (Model.AllCustomers != null && Model.AllCustomers.Count > 0)
 {
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Customer ID</th>
-                <th>Given Name</th>
-                <th>Surname</th>
-                <th>Gender</th>
-                <th>Street Address</th>
-                <th>City</th>
-                <th>Zip Code</th>
-                <th>Country</th>
-                <th>Country Code</th>
-                <th>National ID</th>
-                <th>Telephone Country Code</th>
-                <th>Telephone Number</th>
-                <th>Email Address</th>
-            </tr>
-        </thead>
+    <div class = "data-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <span class="header-content">
+                            ID
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortID="ID"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortID="ID"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="header-content">
+                            GivenName
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortColumn="Givenname"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortColumn="Givenname"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="header-content">
+                            Surname
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortColumn="Surname"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortColumn="Surname"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="header-content">
+                            Gender
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortGender="Gender"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortGender="Gender"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="header-content">
+                            Address
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortAddress="Address"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortAddress="Address"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="header-content">
+                            City
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortCity="City"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortCity="City"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="header-content">
+                            ZipCode
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortZipCode="ZipCode"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortZipCode="ZipCode"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="header-content">
+                            Country
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortCountry="Country"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortCountry="Country"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="header-content">
+                            Country Code
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortCountryCode="CountryCode"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortCountryCode="CountryCode"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="header-content">
+                            NationalID
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortNationalID="NationalID"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortNationalID="NationalID"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="header-content">
+                            Prefix
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortPrefix="Prefix"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortPrefix="Prefix"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="header-content">
+                            Telephone
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortTelephone="Telephone"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortTelephone="Telephone"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                    <th>
+                        <span class="header-content">
+                            Email
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortEmail="Email"
+                               asp-route-sortOrder="asc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-up"></i>
+                            </a>
+                            <a asp-page="/Customers/CustomerSearch"
+                               asp-route-sortEmail="Email"
+                               asp-route-sortOrder="desc"
+                               class="sort-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </span>
+                    </th>
+                </tr>
+            </thead>
         <tbody>
-            @foreach (var customer in Model.AllCustomers)
+            @foreach (var customer in @Model.AllCustomers)
             {
                 <tr>
+                    
                     <td>@customer.CustomerId</td>
                     <td>@customer.Givenname</td>
                     <td>@customer.Surname</td>
@@ -41,10 +251,13 @@
                     <td>@customer.Telephonenumber</td>
                     <td>@customer.Emailaddress</td>
                 </tr>
+               
             }
         </tbody>
     </table>
+    </div>
 }
+
 else
 {
     <p>inga kunder hittas.</p>

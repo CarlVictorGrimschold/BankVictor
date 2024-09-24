@@ -949,7 +949,7 @@ footer .overlay-image {
 ol {
     list-style-type: decimal;*/ /* Använder decimala tal för listpunkterna */
 /*padding: 0;
-width: 100%;*/ /* Gör listan full bredd */
+    width: 100%;*/ /* Gör listan full bredd */
 /*text-align: left;*/ /* Texten är vänsterjusterad */
 /*counter-reset: listcounter;*/ /* Återställer listräknaren */
 /*border-top: 1px solid #ccc;*/ /* Lägger till ett streck ovanför första elementet */
@@ -959,7 +959,9 @@ width: 100%;*/ /* Gör listan full bredd */
   justify-content: center;
   align-items: center;
 }
-
+.data-table .header-text {
+  color: #f2f2f2;
+}
 table {
   margin-top: 110px;
   width: 100%;
@@ -971,6 +973,7 @@ table td, table th {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+  min-width: 150px;
 }
 
 table tr:nth-child(even) {

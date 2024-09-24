@@ -1,5 +1,5 @@
 ﻿
- /*table{
+/*table{
     height: 100%;
     margin: 0;
     padding: 0;
@@ -11,16 +11,31 @@
 
 ol {
     list-style-type: decimal;*/ /* Använder decimala tal för listpunkterna */
-    /*padding: 0;
+/*padding: 0;
     width: 100%;*/ /* Gör listan full bredd */
-    /*text-align: left;*/ /* Texten är vänsterjusterad */
-    /*counter-reset: listcounter;*/ /* Återställer listräknaren */
-    /*border-top: 1px solid #ccc;*/ /* Lägger till ett streck ovanför första elementet */
+/*text-align: left;*/ /* Texten är vänsterjusterad */
+/*counter-reset: listcounter;*/ /* Återställer listräknaren */
+/*border-top: 1px solid #ccc;*/ /* Lägger till ett streck ovanför första elementet */
 /*}*/
 .data-table {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
+
+
+
+    .header {
+       
+        
+
+
+        &-text {
+            color: #f2f2f2;
+        }
+
+        &-sortingbuttons {
+        }
+    }
 }
 
 
@@ -29,12 +44,14 @@ table {
     width: 100%;
     border-collapse: collapse; /* Tar bort mellanrum mellan celler */
     font-family: Arial, sans-serif;
-}
+    
+  }  
 
 table td, table th {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    min-width: 150px;
 }
 
 table tr:nth-child(even) {
@@ -48,6 +65,3 @@ table th {
     background-color: #4CAF50;
     color: white;
 }
-
-
-

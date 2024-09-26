@@ -22,13 +22,13 @@ namespace BankVictor.Pages
 
 
 
-        public List<CustomerViewModel> Customers { get; set; }
+        public List<TopCustomerViewModel> Customers { get; set; }
        
 
         public void OnGet(string countryCode = "SE")
         {
             Customers = _countryService.GetTopWealthyCustomersByCountry(countryCode)
-                .Select(c => new CustomerViewModel
+                .Select(c => new TopCustomerViewModel
             {
                 CustomerId = c.CustomerId,
                 Country = c.Country,
@@ -48,7 +48,7 @@ namespace BankVictor.Pages
 
             }).ToList();
 
-            foreach (CustomerViewModel customer in Customers)
+            foreach (TopCustomerViewModel customer in Customers)
             {
 
                 customer.BalanceCustomer = _accountService.TotalBalance(customer.CustomerId);

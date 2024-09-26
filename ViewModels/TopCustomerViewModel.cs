@@ -1,6 +1,6 @@
 ﻿namespace BankVictor.ViewModels
 {
-    public class AllCustomerWiewModels
+    public class TopCustomerViewModel
     {
         public int CustomerId { get; set; }
 
@@ -33,4 +33,3 @@
         public decimal? BalanceCustomer { get; set; }
     }
 }
-

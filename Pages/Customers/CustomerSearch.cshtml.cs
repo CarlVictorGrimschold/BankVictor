@@ -14,13 +14,13 @@ namespace BankVictor.Pages.Customers
             
         }
 
-        public List<AllCustomerWiewModels> AllCustomers { get; set; }
+        public List<CustomerProfileViewModel> AllCustomers { get; set; }
         public void OnGet(string sortColumn, string sortOrder)
             
         {
             
             AllCustomers = _customerService.GetAllCustomers(sortColumn ,sortOrder)
-             .Select(c => new AllCustomerWiewModels
+             .Select(c => new CustomerProfileViewModel
 
              {
                  CustomerId = c.CustomerId,

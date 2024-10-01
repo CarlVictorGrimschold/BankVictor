@@ -278,7 +278,15 @@
         {
                     <tr>
 
-                        <td>@customer.CustomerId</td>
+                        <td>@customer.CustomerId
+                            <a asp-page="/Customers/CustomerDetailView"
+                               asp-route-customerId="@customer.CustomerId"
+                               class="sort-icon">
+                                <i class="fa-solid fa-user"></i>
+                            </a>
+                        
+                        </td>
+
                         <td>@customer.Givenname</td>
                         <td>@customer.Surname</td>
                         <td>@customer.Gender</td>

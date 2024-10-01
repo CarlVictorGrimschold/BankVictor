@@ -1,4 +1,75 @@
-﻿@page
+﻿@page "{customerId:int}"
 @model BankVictor.Pages.Customers.CustomerDetailViewModel
-@{
-}
+
+<h2>Customer Information</h2>
+
+<div class="customer-info-container">
+    <div class="customer-details">
+        <table>
+            <tr>
+                <th>ID</th>
+                <td>@Model.CustomerDetail.CustomerId</td>
+            </tr>
+            <tr>
+                <th>Full Name</th>
+                <td>@Model.CustomerDetail.Givenname @Model.CustomerDetail.Surname</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>@Model.CustomerDetail.Gender</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>@Model.CustomerDetail.Streetaddress, @Model.CustomerDetail.City, @Model.CustomerDetail.Zipcode</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>@Model.CustomerDetail.Country</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>(+@Model.CustomerDetail.Telephonecountrycode) @Model.CustomerDetail.Telephonenumber</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>@Model.CustomerDetail.Emailaddress</td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+       @*          <td>@Model.CustomerDetail.Birthday.ToString("yyyy-MM-dd")</td> *@
+            </tr>
+            <tr>
+                <th>National ID</th>
+                <td>@Model.CustomerDetail.NationalId</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Customer Accounts</h2>
+
+    <div class="account-details">
+        <table>
+            <thead>
+                <tr>
+                    <th>Account ID</th>
+                    <th>Account Type</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            @* <tbody>
+                 @foreach (var account in Model.CustomerDetail.Accounts)
+                {
+                    <tr>
+                        <td>@account.AccountId</td>
+                        <td>@account.AccountType</td>
+                        <td>@account.Balance.ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Total Balance: @Model.CustomerDetail.BalanceCustomer.ToString("C")</h3>  *@
+</div>
+ 
+  

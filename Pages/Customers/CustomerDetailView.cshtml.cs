@@ -20,8 +20,8 @@ namespace BankVictor.Pages.Customers
             _accountService = accountService;
 
         }
-        public CustomerProfileViewModel CustomerDetail { get; set; }
-
+        public CustomerProfileViewModel CustomerDetail { get; set; } = new CustomerProfileViewModel();
+        public List<AccountViewModel> Accounts { get; set; } = new List<AccountViewModel>();  
 
         public void OnGet(int customerId)
         {
@@ -44,8 +44,17 @@ namespace BankVictor.Pages.Customers
 
             var customerBalance = _accountService.TotalBalance(customerId);
             CustomerDetail.BalanceCustomer = customerBalance;
+            Accounts = _accountService.GetAllAccountsForCustomer(customerId).Select(c => new AccountViewModel
 
-            
+            {
+                AccountId = c.AccountId,
+                Frequency = c.Frequency,
+                Created = c.Created,
+                Balance = c.Balance
+            })
+                .ToList();
+
+
 
 
         }

@@ -582,6 +582,10 @@ textarea.form-control {
   color: #fff;
 }
 
+customer-details {
+  margin-top: 130px;
+}
+
 .banner {
   min-height: 100vh;
 }

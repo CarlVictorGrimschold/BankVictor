@@ -36,7 +36,7 @@
             </tr>
             <tr>
                 <th>Birthday</th>
-       @*          <td>@Model.CustomerDetail.Birthday.ToString("yyyy-MM-dd")</td> *@
+               <td>@Model.CustomerDetail.Birthday</td> 
             </tr>
             <tr>
                 <th>National ID</th>
@@ -44,32 +44,27 @@
             </tr>
         </table>
     </div>
-
-    <h2>Customer Accounts</h2>
-
     <div class="account-details">
         <table>
             <thead>
                 <tr>
                     <th>Account ID</th>
                     <th>Account Type</th>
-                    <th>Balance</th>
+                    <th>Totalbalance</th>
                 </tr>
             </thead>
-            @* <tbody>
-                 @foreach (var account in Model.CustomerDetail.Accounts)
+            <tbody>
+                @foreach (var account in Model.Accounts)
                 {
                     <tr>
                         <td>@account.AccountId</td>
-                        <td>@account.AccountType</td>
-                        <td>@account.Balance.ToString("C")</td>
+                        <td>@account.Frequency</td>
+                        <td>@account.Balance</td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-
-    <h3>Total Balance: @Model.CustomerDetail.BalanceCustomer.ToString("C")</h3>  *@
 </div>
  
   

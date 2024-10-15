@@ -22,6 +22,10 @@ namespace BankVictor.Pages.Customers
         public void OnGet(string sortColumn, string sortOrder, int pageNo)
             
         {
+            if (pageNo == 0)
+                pageNo = 1;
+            CurrentPage = pageNo;
+
             SortColumn = sortColumn;
             SortOrder = sortOrder;
 

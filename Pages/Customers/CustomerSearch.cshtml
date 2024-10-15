@@ -1,11 +1,15 @@
 ﻿@page
 @model BankVictor.Pages.Customers.CustomerSearchModel
-
+@{
+    
+}
 <h2>Customer List</h2>
 
 @if (Model.AllCustomers != null && Model.AllCustomers.Count > 0)
 {
     <div class="data-table">
+        <h3>Page @Model.CurrentPage</h3>
+
         <table>
             <thead>
                 <tr>
@@ -278,7 +282,7 @@
         {
                     <tr>
 
-                        <td>@customer.CustomerId
+                        <td>@customer.CustomerId 
                             <a asp-page="/Customers/CustomerDetailView"
                                asp-route-customerId="@customer.CustomerId"
                                class="sort-icon">
@@ -300,21 +304,34 @@
                         <td>@customer.Telephonenumber</td>
                         <td>@customer.Emailaddress</td>
                     </tr>
-
-        }
+                   
+                }
                 <tr>
                     <td>
-                        <a class="btn btn-secondary"
-                           asp-page="/Customers/CustomerSearch"
-                           asp-route-sortColumn="@Model.SortColumn"
-                           asp-route-sortOrder="@Model.SortOrder"
-                           asp-route-pageNo="@(Model.CurrentPage-1)">
-                            Prev
-                        </a>
+                        @if (Model.CurrentPage != 1)
+                        {
+                            <a class="btn btn-secondary"
+                            asp-page="/Customers/CustomerSearch"
+                            asp-route-sortColumn="@Model.SortColumn"
+                            asp-route-sortOrder="@Model.SortOrder"
+                            asp-route-pageNo="@(Model.CurrentPage-1)">
+                                Prev
+                            </a>
+                        }
                     </td>
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td>
+                        <a class="btn btn-secondary"
+                           asp-page="/Customers/CustomerSearch" 
+                           asp-route-sortColumn="@Model.SortColumn"
+                           asp-route-sortOrder="@Model.SortOrder"
+                           asp-route-pageNo="@(Model.CurrentPage+1)">
+                            Next
+                        </a>
+                    </td>
+
                 </tr>
 
             </tbody>

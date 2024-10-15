@@ -1,3 +1,4 @@
+using Azure;
 using BankCore.Services;
 using BankVictor.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -13,13 +14,19 @@ namespace BankVictor.Pages.Customers
             _customerService = customerService;
             
         }
+        public int CurrentPage { get; set; }
+        public string SortColumn { get; set; }
+        public string SortOrder { get; set; }
 
         public List<CustomerProfileViewModel> AllCustomers { get; set; }
-        public void OnGet(string sortColumn, string sortOrder)
+        public void OnGet(string sortColumn, string sortOrder, int pageNo)
             
         {
-            
-            AllCustomers = _customerService.GetAllCustomers(sortColumn ,sortOrder)
+            SortColumn = sortColumn;
+            SortOrder = sortOrder;
+
+
+            AllCustomers = _customerService.GetAllCustomers(sortColumn ,sortOrder, pageNo)
              .Select(c => new CustomerProfileViewModel
 
              {

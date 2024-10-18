@@ -17,11 +17,15 @@ namespace BankVictor.Pages.Customers
         public int CurrentPage { get; set; }
         public string SortColumn { get; set; }
         public string SortOrder { get; set; }
+        public string Q { get; set; }
+
 
         public List<CustomerProfileViewModel> AllCustomers { get; set; }
-        public void OnGet(string sortColumn, string sortOrder, int pageNo)
+        public void OnGet(string sortColumn, string sortOrder, int pageNo, string q)
             
         {
+            Q = q;
+
             if (pageNo == 0)
                 pageNo = 1;
             CurrentPage = pageNo;
@@ -30,7 +34,7 @@ namespace BankVictor.Pages.Customers
             SortOrder = sortOrder;
 
 
-            AllCustomers = _customerService.GetAllCustomers(sortColumn ,sortOrder, pageNo)
+            AllCustomers = _customerService.GetAllCustomers(sortColumn ,sortOrder, pageNo, q)
              .Select(c => new CustomerProfileViewModel
 
              {

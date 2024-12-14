@@ -1,0 +1,125 @@
+﻿@* @page "{accountid:int}"
+@model BankVictor.Pages.Account.TransactionsPageModel
+
+@if (Model != null)
+{
+<h2>konto: @Model.accountdetails.accountid</h2>
+<p>saldo: @Model.accountdetails.balance</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>datum</th>
+            <th>typ</th>
+            <th>belopp</th>
+        </tr>
+    </thead>
+        <tbody id="transaction-list">
+        @foreach (var transaction in Model.transactions)
+        {
+            <tr>
+                <td>@transaction.date</td>
+                <td>@transaction.type</td>
+                <td>@transaction.amount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button id="load-more" data-account-id="@Model.accountdetails.accountid">ladda fler</button>
+}
+else
+{
+    <p>Inga kontodetaljer är tillgängliga.</p>
+}
+@section scripts {
+    <script>
+        let skip = 20; // startvärde för paginering
+        const take = 20; // antal poster att hämta
+
+        document.getElementById("load-more").addEventListener("click", function () {
+    const accountId = this.getAttribute("data-account-id");
+
+    fetch(`/api/transactions?accountid=${accountId}&skip=${skip}&take=${take}`)
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById("transaction-list");
+            data.forEach(transaction => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${transaction.date}</td>
+                    <td>${transaction.type}</td>
+                    <td>${transaction.amount}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+            skip += take;
+        });
+});
+
+    </script>
+} *@
+ 
+@page "{accountid:int}"
+@model BankVictor.ViewModels.TransactionPageModel
+
+@if (Model != null)
+{
+    <h2>Konto: @Model.AccountDetails.AccountId</h2>
+    <p>Saldo: @Model.AccountDetails.Balance</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Typ</th>
+                <th>Belopp</th>
+            </tr>
+        </thead>
+        <tbody id="transaction-list">
+            @foreach (var transaction in Model.Transactions)
+            {
+                <tr>
+                    <td>@transaction.Date.ToString("yyyy-MM-dd")</td>
+                    <td>@transaction.Type</td>
+                    <td>@transaction.Amount.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button id="load-more" data-account-id="@Model.AccountDetails.AccountId">Ladda fler</button>
+}
+else
+{
+    <p>Inga kontodetaljer är tillgängliga.</p>
+}
+
+@section scripts {
+    <script>
+        let skip = 20; // Startvärde för paginering
+        const take = 20; // Antal poster att hämta
+
+        document.getElementById("load-more").addEventListener("click", function () {
+            const accountId = this.getAttribute("data-account-id");
+
+            fetch(`/api/transactions?accountid=${accountId}&skip=${skip}&take=${take}`)
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById("transaction-list");
+                    data.forEach(transaction => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                                    <td>${transaction.date}</td>
+                                    <td>${transaction.type}</td>
+                                    <td>${transaction.amount}</td>
+                                `;
+                        tableBody.appendChild(row);
+                    });
+                    skip += take;
+                })
+                .catch(error => console.error('Error fetching transactions:', error));
+        });
+    </script>
+}
+

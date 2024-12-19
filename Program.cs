@@ -25,6 +25,7 @@ builder.Services.AddTransient<DataInitializer>();
 builder.Services.AddScoped<CountryService>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<CustomerService>();
+builder.Services.AddScoped<TransactionService>();
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())

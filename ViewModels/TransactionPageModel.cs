@@ -12,15 +12,15 @@ namespace BankVictor.ViewModels
 {
     public class TransactionPageModel
     {
-        public AccountViewModel AccountDetails { get; set; }
+        public AccountViewModel2 AccountDetails { get; set; }
         public List<TransactionViewModel> Transactions { get; set; } = new List<TransactionViewModel>();
     }
 
-    //public class AccountViewModel
-    //{
-    //    public int AccountId { get; set; }
-    //    public decimal Balance { get; set; }
-    //}
+    public class AccountViewModel2
+    {
+        public int AccountId { get; set; }
+        public decimal Balance { get; set; }
+    }
 
     public class TransactionViewModel
     {

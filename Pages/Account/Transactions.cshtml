@@ -60,7 +60,7 @@ else
     </script>
 } *@
  
-@page "{accountid:int}"
+@* @page "{accountid:int}"
 @model BankVictor.ViewModels.TransactionPageModel
 
 @if (Model != null)
@@ -121,5 +121,34 @@ else
                 .catch(error => console.error('Error fetching transactions:', error));
         });
     </script>
+} @* *@
+@* 
+@section scripts {
+    <script>
+        let skip = 20; // Startvärde för paginering
+        const take = 20; // Antal poster att hämta
+
+        document.getElementById("load-more").addEventListener("click", function () {
+            const accountId = this.getAttribute("data-account-id");
+
+            fetch(`/api/transactions?accountid=${accountId}&skip=${skip}&take=${take}`)
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById("transaction-list");
+                    data.forEach(transaction => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                                    <td>${new Date(transaction.date).toLocaleDateString()}</td>
+                                    <td>${transaction.type}</td>
+                                    <td>${transaction.amount.toFixed(2)} kr</td>
+                                `;
+                        tableBody.appendChild(row);
+                    });
+                    skip += take;
+                })
+                .catch(error => console.error('Error fetching transactions:', error));
+        });
+    </script>
 }
+ *@
 

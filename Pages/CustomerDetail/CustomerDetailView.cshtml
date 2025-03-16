@@ -68,7 +68,7 @@
 </div>
   *@
   @page "{customerId:int}"
-@model BankVictor.Pages.Customers.CustomerDetailViewModel
+@model CustomerDetailViewModel
 
 <h2>Customer Information</h2>
 
@@ -121,6 +121,7 @@
                     <th>Account ID</th>
                     <th>Account Type</th>
                     <th>Total Balance</th>
+                    <th>Created</th>
                 </tr>
             </thead>
             <tbody>
@@ -129,12 +130,13 @@
                     <tr>
                         <!-- Länk till transaktionssidan -->
                         <td>
-                            <a href="/Account/Transactions?accountId=@account.AccountId">
+                            <a asp-page="/Transactions/Transactions" asp-route-accountid="@account.AccountId">
                                 @account.AccountId
                             </a>
                         </td>
                         <td>@account.Frequency</td>
                         <td>@account.Balance</td>
+                        <td>@account.Created</td>
                     </tr>
                 }
             </tbody>

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using BankCore.Services;
 
+
 var builder = WebApplication.CreateBuilder(args);
 var Connectionstring = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationIdentityDbContext>(options =>
@@ -25,7 +26,8 @@ builder.Services.AddTransient<DataInitializer>();
 builder.Services.AddScoped<CountryService>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<CustomerService>();
-builder.Services.AddScoped<TransactionService>();
+
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -50,5 +52,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+
 
 app.Run();

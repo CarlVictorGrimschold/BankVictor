@@ -9,5 +9,6 @@
         public DateOnly Created { get; set; }
 
         public decimal Balance { get; set; }
+        public List<TransactionViewModel> Transactions { get; set; } = new List<TransactionViewModel>();
     }
 }

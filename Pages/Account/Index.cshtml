@@ -1,4 +1,30 @@
-﻿@page
+﻿@* @page
 @model BankVictor.Pages.Account.IndexModel
 @{
-}
+} 2025-02-05 *@
+@page "{accountId:int}"
+@model BankVictor.Pages.Account.IndexModel
+
+<h2>Kontodetaljer</h2>
+<p>Kontonummer: @Model.Account.AccountId</p>
+<p>Saldo: @Model.Account.Balance</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Datum</th>
+            <th>Belopp</th>
+            <th>Beskrivning</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model.Account.Transactions)
+        {
+            <tr>
+                <td>@transaction.TransactionDate.ToString("yyyy-MM-dd")</td>
+                <td>@transaction.Amount</td>
+                <td>@transaction.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>

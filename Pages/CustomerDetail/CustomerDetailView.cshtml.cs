@@ -7,26 +7,26 @@ using System.Diagnostics.Metrics;
 using System.Net.Mail;
 using System.Reflection.Emit;
 
-namespace BankVictor.Pages.Customers
+namespace BankVictor.Pages.CustomerDetail
 {
     public class CustomerDetailViewModel : PageModel
     {
         private readonly CustomerService _customerService;
         private readonly AccountService _accountService;
 
-        public CustomerDetailViewModel(CustomerService customerService,  AccountService  accountService)
+        public CustomerDetailViewModel(CustomerService customerService, AccountService accountService)
         {
             _customerService = customerService;
             _accountService = accountService;
 
         }
         public CustomerProfileViewModel CustomerDetail { get; set; } = new CustomerProfileViewModel();
-        public List<AccountViewModel> Accounts { get; set; } = new List<AccountViewModel>();  
+        public List<AccountViewModel> Accounts { get; set; } = new List<AccountViewModel>();
 
         public void OnGet(int customerId)
         {
             var customerDB = _customerService.GetSpecificCustomer(customerId);
-            
+
             CustomerDetail.CustomerId = customerDB.CustomerId;
             CustomerDetail.Country = customerDB.Country;
             CustomerDetail.Gender = customerDB.Gender;
